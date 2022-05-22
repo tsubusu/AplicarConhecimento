@@ -15,7 +15,6 @@ namespace Repository.Imp
 
         public Task<List<User>> GetAll()
         {
-            _context.Users.
             return _context.Set<User>().ToListAsync();
         }
     }
