@@ -20,8 +20,8 @@ namespace Repository.Context
             modelBuilder.ApplyConfiguration(new UserMap());
         }
         //entities
-        DbSet<User> Users { get; set; }
-        DbSet<Menu> Menus { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Menu> Menus { get; set; }
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
