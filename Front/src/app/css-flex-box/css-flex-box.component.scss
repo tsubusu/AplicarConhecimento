@@ -400,6 +400,27 @@ table {
     margin-left: 0;
 }
 
+.videoSobre .container {
+    display: flex;
+}
+
+.videoSobre-sobre {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-grow: 2; //preenche o espaço que esta sobrando, neste caso estou dividindo o espaço em 3 e passando 2/3 para essa classe
+}
+
+.videoSobre-sobre-list {
+    flex-grow: 1; 
+}
+
+.videoSobre-video {
+    flex-grow: 1;  //neste caso estou dividindo o espaço em 3 e passando 1/3 para essa classe
+    flex-shrink: 2; //Diminuir o tamanho 2x mais que o normal 
+    // flex-shrink: 0; Neste caso não diminui o tamanho do elementp 
+}
+
 // Parte Mobile
 @media(max-width: 768px) {
 
@@ -445,5 +466,13 @@ table {
 
     .cabecalhoPrincipal-nav-link-app {
         order: -1; // flex item - order altera a ordenação do filho
+    }
+
+    .videoSobre .container {
+        flex-direction: column;
+    }
+
+    .videoSobre-video {
+        margin: 0 auto;
     }
 }
