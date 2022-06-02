@@ -15,7 +15,7 @@ namespace Repository.Map
             builder.Property(x => x.Id)
                 .HasColumnName("id");
 
-            builder.Property(x => x.Name)
+            builder.Property(x => x.UserName)
                 .HasColumnName("name");
         }
     }

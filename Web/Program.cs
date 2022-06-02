@@ -1,5 +1,9 @@
 using Business.Imp;
 using Business.Interface;
+using Business.Validation;
+using Entities.Model;
+using FluentValidation;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Repository.Context;
 using Repository.Imp;
@@ -15,6 +19,15 @@ builder.Services.AddDbContext<ProjetoContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
+builder.Services.AddDbContext<UserContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("ProjetoConnection");
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
+builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>()
+    .AddEntityFrameworkStores<UserContext>();
+
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddControllers();
@@ -25,7 +38,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserBusiness, UserBusiness>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+builder.Services.AddScoped<IValidator<User>, UserDTOValidation>();
 builder.Services.AddScoped<IUserBusiness, UserBusiness>();
+builder.Services.AddScoped<ILoginBusiness, LoginBusiness>();
 
 var app = builder.Build();
 
