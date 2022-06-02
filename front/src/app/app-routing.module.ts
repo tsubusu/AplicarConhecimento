@@ -6,7 +6,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})], // carregar as demais paginas em segundo plano
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
