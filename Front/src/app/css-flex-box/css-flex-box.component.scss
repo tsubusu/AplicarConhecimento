@@ -361,11 +361,10 @@ table {
     align-items: center;
     justify-content: space-around; // distribuir os espaços em branco ao redor do elementos da classe.
     width: 70%;
-    margin-right: 5%;
 }
 
 .rodapePrincipal-contatoForm {
-    width: 25%;
+    //width: 25%;
 }
 
 .rodapePrincipal-contatoForm-fieldset {
@@ -388,8 +387,8 @@ table {
 }
 
 .conteudoPrincipal-cursos-link {
-    width: 20%;
-    margin: 1%;
+    width: 23%;
+    //margin: 5%;
 }
 
 .conteudoPrincipal-cursos-link:nth-child(4n) { // pegar os elementos q são multiplos de 4 
