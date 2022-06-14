@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+$font: 'Roboto', sans-serif;
+
+//Cores
+$cor-primaria: #495371;
+$cor-secundaria: #74959A;
+$cor-terciaria: #F1E0AC;
+
+@mixin reset { //@mixin indica a criação de uma função
+    margin: 0;
+    padding: 0;
+    font-family: $font;
+}
+
+body {
+    @include reset; // chamar o metodo
+}

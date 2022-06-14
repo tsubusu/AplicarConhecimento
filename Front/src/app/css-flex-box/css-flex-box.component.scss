@@ -383,7 +383,10 @@ table {
 .conteudoPrincipal-cursos {
     display: flex;
     flex-wrap: wrap;
+    //flex-wrap: wrap-reverse; //Ele inverte a ordem das linhas
     justify-content: flex-start; // este é o padrão de posicionamento do flex-box
+    //flex-direction: row-reverse; // inverte os elementos da linha
+    //flex-direction: column-reverse
 }
 
 .conteudoPrincipal-cursos-link {
@@ -419,6 +422,12 @@ table {
     flex-shrink: 2; //Diminuir o tamanho 2x mais que o normal 
     // flex-shrink: 0; Neste caso não diminui o tamanho do elementp 
 }
+
+/* 
+    flex: 1 1 200px; // é a junção do flex-grow com flex-shrink e flex-basis
+    flex-basis: 200px; // Seta o tamanho de 200px para cada elemento é igual ao width 
+    align-self: //Essa propriedade é aplicada ao flex item e faz com que ele se alinhe individualmente.
+*/
 
 // Parte Mobile
 @media(max-width: 768px) {
