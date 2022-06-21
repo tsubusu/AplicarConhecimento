@@ -4,6 +4,8 @@ import { MentoriaComponent } from './mentoria.component';
 import { MentoriaRoutingModule } from './mentoria-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { WeatherForecastService } from './shared/service/weather-forecast.service';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: MentoriaComponent },
@@ -13,10 +15,13 @@ const routes: Routes = [
   declarations: [MentoriaComponent],
   imports: [
     CommonModule,
-    RouterModule,
-    //MentoriaRoutingModule,
+    //MentoriaRoutingModule,s
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    FormsModule,
+  ],
+  providers: [
+    WeatherForecastService
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

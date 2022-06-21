@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WeatherForecast } from './shared/model/weather-forecast.model';
+import { WeatherForecastService } from './shared/service/weather-forecast.service';
 
 @Component({
   selector: 'app-mentoria',
@@ -7,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MentoriaComponent implements OnInit {
 
-  public teste = '';
-  constructor() { }
+  public weather: WeatherForecast[];
+  constructor(
+    private service: WeatherForecastService
+  ) { }
 
   ngOnInit(): void {
+    this.getWeatherForecast();
   }
 
+  getWeatherForecast() {
+    this.service.getWeatherForecast().subscribe(x => this.weather = x );
+  }
 }
