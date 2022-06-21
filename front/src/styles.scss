@@ -17,6 +17,6 @@ body {
     @include reset; // chamar o metodo
 }
 
-header {
-    height: 350px;
+html {
+    background: url(./assets/site/page-bg.jpg);
 }

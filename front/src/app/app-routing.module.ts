@@ -4,7 +4,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const mainRoutes: Routes = [
   { path: 'flex-box', loadChildren: () => import('./css-flex-box/css-flex-box-routing.module').then(m => m.CssFlexBoxRoutingModule)},
   { path: 'sass', loadChildren: () => import('./sass/sass-routing.module').then(m => m.SassRoutingModule)},
-  { path: 'angular', loadChildren: () => import('./angular/angular-routing.module').then(m => m.AngularRoutingModule)}
+  { path: 'angular', loadChildren: () => import('./angular/angular.module').then(m => m.AngularModule)}
 ];
 
 @NgModule({

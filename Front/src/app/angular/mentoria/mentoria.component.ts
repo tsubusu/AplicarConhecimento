@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MentoriaComponent implements OnInit {
 
+  public teste = '';
   constructor() { }
 
   ngOnInit(): void {

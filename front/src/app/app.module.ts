@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { InputModule } from './shared/component/input/input.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +12,6 @@ import { InputModule } from './shared/component/input/input.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    InputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
