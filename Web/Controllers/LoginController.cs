@@ -24,5 +24,13 @@ namespace Web.Controllers
 
             return Ok(JsonConvert.SerializeObject(result.Successes));
         }
+
+        [HttpGet]
+        public IActionResult DeslogaUsuario()
+        {
+            var resultado = _loginBusiness.DeslogaUsuario();
+            if (resultado.IsFailed) return Unauthorized(resultado.Errors);
+            return Ok(resultado.Successes);
+        }
     }
 }

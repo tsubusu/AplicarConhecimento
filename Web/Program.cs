@@ -1,10 +1,12 @@
 using Business.Imp;
 using Business.Interface;
 using Business.Validation;
+using Entities.DTO;
 using Entities.Model;
 using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Repository.Context;
 using Repository.Imp;
 using Repository.Interface;
@@ -24,8 +26,10 @@ builder.Services.AddDbContext<UserContext>(options =>
     var connectionString = builder.Configuration.GetConnectionString("ProjetoConnection");
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
-builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>()
-    .AddEntityFrameworkStores<UserContext>();
+builder.Services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
+    options => options.SignIn.RequireConfirmedEmail = true)
+    .AddEntityFrameworkStores<UserContext>()
+    .AddDefaultTokenProviders();
 
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -48,12 +52,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var emailSettings = builder.Configuration.GetSection("EmailSettings");
+builder.Services.Configure<ConfiguracaoEmail>(emailSettings);
+builder.Services.AddSingleton(x => x.GetRequiredService<IOptions<ConfiguracaoEmail>>().Value);
+
 builder.Services.AddScoped<IUserBusiness, UserBusiness>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddScoped<IValidator<User>, UserDTOValidation>();
 builder.Services.AddScoped<IUserBusiness, UserBusiness>();
 builder.Services.AddScoped<ILoginBusiness, LoginBusiness>();
+builder.Services.AddScoped<IEmailBusiness, EmailBusiness>();
 
 var app = builder.Build();
 

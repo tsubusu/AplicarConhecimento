@@ -53,5 +53,16 @@ namespace Business.Imp
             var token = GetToken(identityUser);
             return Result.Ok().WithSuccess(token.Value); 
         }
+
+        public Result DeslogaUsuario()
+        {
+            var resultadoIdentity = _signInManager.SignOutAsync();
+
+            if (resultadoIdentity.IsCompletedSuccessfully)
+            {
+                return Result.Ok();
+            }
+            return Result.Fail("Logout falhou");
+        }
     }
 }

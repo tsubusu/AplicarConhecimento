@@ -2,7 +2,7 @@
 .dash-board {
     display: flex;
     justify-content: center;
-    div {
+    .dash-board-item {
         border-radius: 15px;
         margin: 15px;
         padding: 5px;
@@ -11,14 +11,14 @@
         background-color: white;
         display: flex;
         justify-content: center;
+    }
+}
 
-        .weather {
-            flex-wrap: wrap;
-            width: 100%;
-            span {
-                height: 0px;
-            }
-        }
+.weather {
+    flex-wrap: wrap;
+    width: 100%;
+    span {
+        height: 0px;
     }
 }
 

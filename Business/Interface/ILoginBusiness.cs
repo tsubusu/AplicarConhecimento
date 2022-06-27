@@ -8,5 +8,6 @@ namespace Business.Interface
     {
         Result SignIn(LoginRequest loginRequest);
         Token GetToken(IdentityUser<int> user);
+        Result DeslogaUsuario();
     }
 }

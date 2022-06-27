@@ -6,6 +6,7 @@ namespace Business.Interface
     public interface IUserBusiness
     {
         Task<List<UserDTO>> GetAll();
-        Result AddUser(UserDTO userDTO);
+        Result AddUserAsync(UserDTO userDTO);
+        Result AtivarContaUsuario(AtivarContaDTO ativarContaDTO);
     }
 }
