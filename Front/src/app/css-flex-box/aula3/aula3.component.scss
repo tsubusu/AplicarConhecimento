@@ -1,0 +1,116 @@
+
+* {
+    --cor-de-fundo: #ebecee;
+    --branco: #FFFFFF;
+    --laranja: orange;
+    --azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+}
+
+.body {
+    width: auto;
+    height: 100vh;
+    background-color: var(--cor-de-fundo);
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--branco);
+    align-items: center;
+    position: relative;
+    &__menu-hambuguer {
+        width: 24px;
+        height: 24px;
+        background-image: url('../../../assets/flex-box-aula3/Menu.svg');
+        display: inline-block;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    &__imagem{
+        padding: 0.8rem;
+    }
+    &__botao {
+        display: none;
+    }
+}
+
+@mixin lista-titulo-link {
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 60vw;
+    &__titulo {
+        font-weight: 700;
+        color: var(--laranja);
+        @include lista-titulo-link();
+    }
+    &__item {
+        @include lista-titulo-link();
+    }
+    &__link {
+        background: var(--azul-degrade);
+        -webkit-background-clip: text; //webKit é para funcionar em outros navegadores
+        -webkit-text-fill-color: transparent; 
+        background-clip: text; //aplicar somente onde ha texto
+        text-transform: uppercase;
+    }
+}
+
+.container__botao:checked~.lista-menu { // ~ é um combinador css -> procura o elemento em seguida
+    display: block;
+}
+
+.banner {
+    background: var(--azul-degrade);
+    color: var(--branco);
+    text-align: center;
+    padding: 2.5em 2em;
+    &__titulo {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    &__texto {
+        font-weight: 500;
+        margin: 1em 0;
+    }
+    &__pesquisa {
+        background-color: transparent;
+        border: 1px solid var(--branco);
+        color: var(--branco);
+        border-radius: 24px;
+        padding: 1em;
+        width: 100%;
+        box-sizing: border-box;
+        &::placeholder {
+            text-align: center;
+            font-weight: 400;
+            font-size: 14px;
+            text-align: center;
+            color: var(--branco);
+            background: url('../../../assets/flex-box-aula3/Lupa.svg') no-repeat;
+            background-position: 2em;
+        }
+    }
+}
+
+.carrossel {
+    &__titulo {
+        color: var(--laranja);
+        background-color: var(--branco);
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 1em 0 0.5em 0;
+    }
+}

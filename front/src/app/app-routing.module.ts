@@ -7,6 +7,7 @@ const mainRoutes: Routes = [
   { path: 'sass', loadChildren: () => import('./sass/sass-routing.module').then(m => m.SassRoutingModule)},
   { path: 'angular', loadChildren: () => import('./angular/angular.module').then(m => m.AngularModule)},
   { path: 'css', loadChildren: () => import('./css/css.module').then(m => m.CssModule)},
+  { path: 'html', loadChildren: () => import('./html/html.module').then(m => m.HtmlModule)},
   { path: '', component: AppComponent},
   { path: '**', component: AppComponent}
 ];
