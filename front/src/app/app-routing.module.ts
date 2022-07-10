@@ -9,7 +9,8 @@ const mainRoutes: Routes = [
   { path: 'css', loadChildren: () => import('./css/css.module').then(m => m.CssModule)},
   { path: 'html', loadChildren: () => import('./html/html.module').then(m => m.HtmlModule)},
   { path: 'seo', loadChildren: () => import('./seo/seo.module').then(m => m.SeoModule)},
-  { path: '', component: AppComponent},
+  { path: 'javascript', loadChildren: () => import('./javascript/javascript.module').then(m => m.JavascriptModule)},
+  { path: '', redirectTo: 'angular/aula1', pathMatch: 'full'},
   { path: '**', component: AppComponent}
 ];
 
