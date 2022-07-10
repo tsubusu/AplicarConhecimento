@@ -8,6 +8,7 @@ const mainRoutes: Routes = [
   { path: 'angular', loadChildren: () => import('./angular/angular.module').then(m => m.AngularModule)},
   { path: 'css', loadChildren: () => import('./css/css.module').then(m => m.CssModule)},
   { path: 'html', loadChildren: () => import('./html/html.module').then(m => m.HtmlModule)},
+  { path: 'seo', loadChildren: () => import('./seo/seo.module').then(m => m.SeoModule)},
   { path: '', component: AppComponent},
   { path: '**', component: AppComponent}
 ];

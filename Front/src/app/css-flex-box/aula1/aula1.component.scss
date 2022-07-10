@@ -101,7 +101,13 @@ $sombras: 0px 4px 4px rgba(0, 0, 0, 0.16);
     .#{$prefix}#{nth($i, 1)} {
         i::before {
             padding-right: 10px;
-            content: nth($i, 2);
+            content: nth($i, 2); //nth pega nesse exemplo pega a 2 propriedade passada no parametro
+            /*
+            Returns the nth element in the list.
+            Example:
+            nth(a b c, 3)
+            Result: c
+            */
         }
     }
   }
